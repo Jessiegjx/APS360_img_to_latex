@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environment
+.venv/
+
+# VS Code
+.vscode/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Large datasets
+data/
+datasets/
+
+# Model checkpoints
+*.pth
+
+# Large images (optional)
+*.zip
+*.tar
+*.gz
+*.png

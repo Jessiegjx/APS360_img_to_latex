@@ -2,16 +2,16 @@ import json
 import torch
 import matplotlib.pyplot as plt
 
-from models.transformer.im2latex_dataset import Im2LatexDataset
-from models.baseline.cnn_encoder import CNNEncoder
-from models.baseline.rnn_decoder import RNNDecoder
+from im2latex_dataset import Im2LatexDataset
+from cnn_encoder import CNNEncoder
+from rnn_decoder import RNNDecoder
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
 CSV = r"D:\APS360_proj\data\processed\im2Latex\validate_clean.csv"
 IMAGE_DIR = r"D:\APS360_proj\data\raw\im2Latex\formula_images_processed"
 TOKENIZER = r"D:\APS360_proj\data\processed\tokenizer.json"
-CHECKPOINT = r"D:\APS360_proj\code\baseline_best.pth"
+CHECKPOINT = r"D:\APS360_proj\baseline_best.pth"
 
 MAX_LEN = 150
 
@@ -75,7 +75,7 @@ decoder.eval()
 # Choose one example
 # -----------------------------------------------------
 
-idx = 0          # change this to inspect different samples
+idx = 10          # change this to inspect different samples
 
 image, target_ids = dataset[idx]
 

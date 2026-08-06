@@ -10,7 +10,6 @@ import torchvision.transforms as transforms
 class Im2LatexDataset(Dataset):
 
     def __init__(self, csv_path, image_folder, tokenizer_path):
-
         self.df = pd.read_csv(csv_path)
         self.image_folder = image_folder
 
@@ -18,8 +17,9 @@ class Im2LatexDataset(Dataset):
             self.tokenizer = json.load(f)["vocab"]
 
         self.transform = transforms.Compose([
-            transforms.Grayscale(1),
-            transforms.ToTensor()
+            # transforms.Grayscale(1),
+            transforms.ToTensor(),
+            transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
         ])
 
         self.pad = self.tokenizer["<PAD>"]
@@ -29,18 +29,13 @@ class Im2LatexDataset(Dataset):
 
 
     def tokenize(self, formula):
-
         tokens = formula.split()
-
         ids = [self.bos]
-
         for t in tokens:
             ids.append(
-                self.tokenizer.get(t, self.unk)
-            )
+                self.tokenizer.get(t, self.unk))
 
         ids.append(self.eos)
-
         return torch.tensor(ids)
 
 
@@ -49,20 +44,14 @@ class Im2LatexDataset(Dataset):
 
 
     def __getitem__(self, idx):
-
         row = self.df.iloc[idx]
-
         img_path = os.path.join(
             self.image_folder,
             row["image"]
         )
-
-        img = Image.open(img_path).convert("L")
-
+        img = Image.open(img_path).convert("RGB")
         img = self.transform(img)
-
         caption = self.tokenize(
-            row["formula"]
-        )
+            row["formula"])
 
         return img, caption

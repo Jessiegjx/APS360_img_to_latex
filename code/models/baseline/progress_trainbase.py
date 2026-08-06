@@ -8,11 +8,11 @@ from pathlib import Path
 # sys.path.append(r"D:\APS360_proj\data\processed\im2Latex")
 
 from torch.utils.data import DataLoader, Subset
-from models.transformer.im2latex_dataset import Im2LatexDataset
-from models.baseline.collate import collate_fn
-from models.baseline.cnn_encoder import CNNEncoder
-from models.baseline.rnn_decoder import RNNDecoder
-from models.baseline.traing_baseline import train, plot_loss, plot_accuracy
+from im2latex_dataset import Im2LatexDataset
+from collate import collate_fn
+from cnn_encoder import CNNEncoder
+from rnn_decoder import RNNDecoder
+from trainfcns_baseline import train, plot_loss, plot_accuracy
 
 
 random.seed(42)

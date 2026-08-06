@@ -1,6 +1,6 @@
 import torch
 import torch.nn.functional as F
-from models.transformer.im2latex_dataset import Im2LatexDataset
+from im2latex_dataset import Im2LatexDataset
 
 
 def collate_fn(batch):

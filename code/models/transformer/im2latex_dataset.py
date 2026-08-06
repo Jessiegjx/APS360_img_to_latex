@@ -22,7 +22,7 @@ class Im2LatexDataset(Dataset):
         #     transforms.ToTensor()
         # ])
         self.transform = transforms.Compose([
-            transforms.Grayscale(3),
+            # transforms.Grayscale(3),
             transforms.ToTensor(),
             transforms.Normalize(
                 mean=[0.485, 0.456, 0.406],
@@ -65,7 +65,7 @@ class Im2LatexDataset(Dataset):
             row["image"]
         )
 
-        img = Image.open(img_path).convert("L")
+        img = Image.open(img_path).convert("RGB")
 
         img = self.transform(img)
 

@@ -1,0 +1,14 @@
+# Install the PyTorch/Torchvision build that matches your OS and CUDA setup first:
+# https://pytorch.org/get-started/locally/
+torch
+torchvision
+
+# Data, image processing, training, and evaluation
+numpy
+pandas
+Pillow
+opencv-python
+matplotlib
+tqdm
+nltk
+ijson

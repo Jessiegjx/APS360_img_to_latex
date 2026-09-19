@@ -1,31 +1,52 @@
 # Python
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
 
-# Virtual environment
+# Virtual environments and tool caches
 .venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
 
-# VS Code
+# Editors and operating systems
 .vscode/
+.idea/
+.DS_Store
+Thumbs.db
 
 # Jupyter
 .ipynb_checkpoints/
 
-# Large datasets
+# Datasets and derived data
 data/
 datasets/
+*.csv
 
-# Model checkpoints
+# Model checkpoints and experiment artifacts
 *.pth
+*.pt
+*.ckpt
 saved_paths/
+ununsed_checkpoints/
+*.log
+training_log*.txt
 
-# Logs
-*.txt
+# Generated visualizations (the curated portfolio figure below is intentionally tracked)
+graph_img_final_report_badpic/
+plots_images/
+*.png
+*.jpg
+*.jpeg
+*.pdf
+!docs/
+!docs/figures/
+!docs/figures/*.png
+!docs/*.pdf
 
 # Archives
 *.zip
 *.tar
 *.gz
-
-# Large images
-*.png
